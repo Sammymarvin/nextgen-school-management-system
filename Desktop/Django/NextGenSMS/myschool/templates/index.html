@@ -1,0 +1,125 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NextGenSMS Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <h4 class="text-center my-3">Navigation</h4>
+                    <div class="list-group list-group-flush">
+                        <a href="{% url 'teacher_portal' %}" class="list-group-item list-group-item-action">Teacher
+                            Portal</a>
+                        <a href="{% url 'students' %}" class="list-group-item list-group-item-action">Students</a>
+                        <a href="{% url 'attendance' %}" class="list-group-item list-group-item-action">Attendance</a>
+                        <a href="{% url 'register_teacher' %}" class="list-group-item list-group-item-action">Register
+                            Teacher</a>
+                        <a href="{% url 'list_teachers' %}" class="list-group-item list-group-item-action">List
+                            Teachers</a>
+                        <a href="{% url 'upload_exam' 1 %}" class="list-group-item list-group-item-action">Upload
+                            Exams</a>
+                        <a href="{% url 'download_exams' 1 %}" class="list-group-item list-group-item-action">Download
+                            Exams</a>
+                        <a href="{% url 'generate_exam_records' 1 %}"
+                            class="list-group-item list-group-item-action">Generate Exam Records</a>
+                        <a href="{% url 'view_performance' 1 %}" class="list-group-item list-group-item-action">View
+                            Performance</a>
+                        <a href="{% url 'grade_parallel_report' 1 %}"
+                            class="list-group-item list-group-item-action">Grade Parallel Report</a>
+                        <a href="{% url 'generate_report_card' 1 %}"
+                            class="list-group-item list-group-item-action">Generate Report Card</a>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Admin Dashboard</h1>
+                </div>
+                <h5>Welcome to NextGenSMS Admin Dashboard</h5>
+                <p>Use the navigation on the left to manage different sections of the system.</p>
+
+                <!-- Dashboard Widgets -->
+                <div class="row dashboard-widgets">
+                    <div class="col-md-4">
+                        <div class="card text-white bg-primary mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Teachers</h5>
+                                <p class="card-text">Manage teacher profiles and assignments.</p>
+                                <a href="{% url 'list_teachers' %}" class="btn btn-light">List Teachers</a>
+                                <a href="{% url 'register_teacher' %}" class="btn btn-light">Register Teacher</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-white bg-success mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Students</h5>
+                                <p class="card-text">View and manage student information.</p>
+                                <a href="{% url 'students' %}" class="btn btn-light">View Students</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-white bg-warning mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Attendance</h5>
+                                <p class="card-text">Track and manage attendance records.</p>
+                                <a href="{% url 'attendance' %}" class="btn btn-light">View Attendance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row dashboard-widgets">
+                    <div class="col-md-4">
+                        <div class="card text-white bg-danger mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Exams</h5>
+                                <p class="card-text">Manage and record student exam information.</p>
+                                <a href="{% url 'upload_exam' 1 %}" class="btn btn-light">Upload Exams</a>
+                                <a href="{% url 'download_exams' 1 %}" class="btn btn-light">Download Exams</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-white bg-info mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Courses</h5>
+                                <p class="card-text">View and manage courses and curriculum.</p>
+                                <a href="{% url 'generate_exam_records' 1 %}" class="btn btn-light">Generate Exam
+                                    Records</a>
+                                <a href="{% url 'grade_parallel_report' 1 %}" class="btn btn-light">Grade Parallel
+                                    Report</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-white bg-secondary mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Performance</h5>
+                                <p class="card-text">Generate and view performance reports.</p>
+                                <a href="{% url 'view_performance' 1 %}" class="btn btn-light">View Performance</a>
+                                <a href="{% url 'generate_report_card' 1 %}" class="btn btn-light">Generate Report
+                                    Card</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Dashboard Widgets -->
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
